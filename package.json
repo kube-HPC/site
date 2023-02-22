@@ -1,0 +1,12 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "Hkube site internal deployment",
+  "main": "index.js",
+  "scripts": {
+    "build": "./dockerfile/build.sh hkube-site",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Golan Hallel",
+  "license": "ISC"
+}

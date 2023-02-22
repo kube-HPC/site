@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
+name: SITE-CHANGED-TRIGGER
+
+# Controls when the action will run.
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  repository_dispatch:
+    types: [trigger]
+jobs:
+  # This workflow contains a single job called "build"
+  test_and_build:
+    if: "github.event.client_payload.action == 'dev-version'"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: setup git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: kube-HPC/kube-HPC.github.io
+          path: './website'
+          ref: master
+      - name: build
+        run: |
+          docker login --username yehiyam --password ${DOCKER_HUB_PASS}
+          PRIVATE_REGISTRY=docker.io/hkube npm run build
+        env:
+          DOCKER_HUB_PASS: ${{ secrets.DOCKER_PASSWORD }}
+      
+
+
+     
