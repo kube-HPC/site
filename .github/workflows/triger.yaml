@@ -27,6 +27,7 @@ jobs:
           ref: master
       - name: build
         run: |
+          ls website
           docker login --username yehiyam --password ${DOCKER_HUB_PASS}
           PRIVATE_REGISTRY=docker.io/hkube npm run build
         env:
