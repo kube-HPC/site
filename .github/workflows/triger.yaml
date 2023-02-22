@@ -6,7 +6,8 @@ name: SITE-CHANGED-TRIGGER
 on:
   # Allows you to run this workflow manually from the Actions tab
   repository_dispatch:
-
+    types: [trigger]
+  workflow_dispatch:    
 jobs:
   # This workflow contains a single job called "build"
   test_and_build:
