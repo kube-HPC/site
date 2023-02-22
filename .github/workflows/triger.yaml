@@ -11,7 +11,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   test_and_build:
-    if: "github.event.client_payload.action == 'dev-version'"
+    # if: "github.event.client_payload.action == 'dev-version'"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
