@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Hkube site internal deployment",
   "main": "index.js",
   "scripts": {
